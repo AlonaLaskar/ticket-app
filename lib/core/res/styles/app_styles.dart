@@ -30,4 +30,9 @@ class AppStyles {
     fontWeight: FontWeight.bold,
     color: textColor,
   );
+  static TextStyle heandLineStyle4 = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w500,
+    color: textColor,
+  );
 }
