@@ -9,6 +9,11 @@ class AppStyles {
   static Color ticketPerpule = const Color.fromARGB(255, 177, 162, 238);
   static Color kakiColor = const Color.fromARGB(255, 100, 36, 74);
   static Color ticketPink = const Color.fromARGB(255, 202, 170, 196);
+  static Color planeColor = const Color(0xFFBFC2DF);
+  static Color findTicketColor = const Color(0xD91130CE);
+  static Color circleColor = const Color(0xFF189999);
+
+
 
   static TextStyle textStyle = TextStyle(
     fontSize: 16,
