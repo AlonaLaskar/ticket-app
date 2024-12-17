@@ -1,6 +1,7 @@
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
-import '/screens/hone_screen.dart';
+import '../../screens/home/home_screen.dart';
+import '../../screens/search/serch_screen.dart';
 
 class BottonNavBar extends StatefulWidget {
   const BottonNavBar({super.key});
@@ -11,7 +12,7 @@ class BottonNavBar extends StatefulWidget {
 class _BottonNavBarState extends State<BottonNavBar> {
   final appScreens = [
     const HomeScreen(),
-    const Center(child: Text('Search')),
+    const SearchScreen(),
     const Center(child: Text('Ticket')),
     const Center(child: Text('Profile')),
   ];
