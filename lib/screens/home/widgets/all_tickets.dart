@@ -17,8 +17,11 @@ class AllTickets extends StatelessWidget {
             child: Column(
               children: ticketList
                   .map((singleTicket) => Container(
-                      padding: const EdgeInsets.all(16),
-                      child: TicketsView(ticket: singleTicket)))
+                      margin: const EdgeInsets.only(bottom: 20),
+                      child: TicketsView(
+                        ticket: singleTicket,
+                        wholeScreen: true,
+                      )))
                   .toList(),
             ),
           )

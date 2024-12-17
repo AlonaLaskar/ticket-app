@@ -39,18 +39,18 @@ class TicketDetailsWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               AppCoulmnTextLayout(
-                TopText: date,
-                BottomText: dateLabel,
+                topText: date,
+                bottomText: dateLabel,
                 align: CrossAxisAlignment.start,
               ),
               AppCoulmnTextLayout(
-                TopText: departureTime,
-                BottomText: departureTimeLabel,
+                topText: departureTime,
+                bottomText: departureTimeLabel,
                 align: CrossAxisAlignment.center,
               ),
               AppCoulmnTextLayout(
-                TopText: ticketNumber,
-                BottomText: ticketNumberLabel,
+                topText: ticketNumber,
+                bottomText: ticketNumberLabel,
                 align: CrossAxisAlignment.end,
               ),
             ],

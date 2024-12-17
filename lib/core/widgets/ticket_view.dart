@@ -7,8 +7,10 @@ import '/core/widgets/big_circle.dart';
 
 class TicketsView extends StatelessWidget {
   final Map<String, dynamic> ticket;
+  final bool wholeScreen;
 
-  const TicketsView({super.key, required this.ticket});
+  const TicketsView(
+      {super.key, required this.ticket, this.wholeScreen = false});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +19,7 @@ class TicketsView extends StatelessWidget {
       width: size.width * 0.85,
       height: 189,
       child: Container(
-        margin: const EdgeInsets.only(right: 16),
+        margin: EdgeInsets.only(right: wholeScreen == true ? 0 : 16),
         child: Column(
           children: [
             TicketWidget(

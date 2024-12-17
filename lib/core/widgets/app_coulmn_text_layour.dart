@@ -4,9 +4,9 @@ import '/core/widgets/text_style_small_title.dart';
 
 class AppCoulmnTextLayout extends StatelessWidget {
   const AppCoulmnTextLayout(
-      {super.key, required this.TopText, required this.BottomText,this.align = CrossAxisAlignment.end});
-  final String TopText;
-  final String BottomText;
+      {super.key, required this.topText, required this.bottomText,this.align = CrossAxisAlignment.end});
+  final String topText;
+  final String bottomText;
   final CrossAxisAlignment align;
 
   @override
@@ -14,9 +14,9 @@ class AppCoulmnTextLayout extends StatelessWidget {
     return Column(
       crossAxisAlignment: align,
       children: [
-        TextStyleeBigTitle(text: TopText),
+        TextStyleeBigTitle(text: topText),
         const SizedBox(height: 5),
-        TextStyleSmallTitle(text: BottomText),
+        TextStyleSmallTitle(text: bottomText),
       ],
     );
   }

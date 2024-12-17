@@ -7,7 +7,8 @@ class AppStyles {
   static Color textColor = const Color(0xFF3b3b3b);
   static Color bgColor = const Color(0xFFeeedf2);
   static Color ticketPerpule = const Color.fromARGB(255, 177, 162, 238);
-  static Color ticketPink = Color.fromARGB(255, 202, 170, 196);
+  static Color kakiColor = const Color.fromARGB(255, 100, 36, 74);
+  static Color ticketPink = const Color.fromARGB(255, 202, 170, 196);
 
   static TextStyle textStyle = TextStyle(
     fontSize: 16,

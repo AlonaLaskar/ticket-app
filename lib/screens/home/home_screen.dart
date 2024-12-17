@@ -1,6 +1,7 @@
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:ticket_app/core/res/styles/media.dart';
+import '/core/res/styles/media.dart';
+import 'widgets/hotel.dart';
 import '/core/res/styles/app_styles.dart';
 import '/core/widgets/app_double_text.dart';
 import '/core/widgets/ticket_view.dart';
@@ -21,6 +22,7 @@ class HomeScreen extends StatelessWidget {
               horizontal: 20,
             ),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -71,8 +73,11 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 40),
-                const AppDoubleText(
-                    bigText: "Upcoming Flyts", smallText: "View All"),
+                AppDoubleText(
+                  bigText: "Upcoming Flyts",
+                  smallText: "View All",
+                  func: () => Navigator.pushNamed(context, '/all_tickets'),
+                ),
                 const SizedBox(height: 20),
                 SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
@@ -82,6 +87,21 @@ class HomeScreen extends StatelessWidget {
                               TicketsView(ticket: singleTicket))
                           .toList(),
                     )),
+                const SizedBox(height: 40),
+                AppDoubleText(
+                  bigText: "Hotels",
+                  smallText: "View All",
+                  func: () => Navigator.pushNamed(context, '/all_hotels'),
+                ),
+                const SizedBox(height: 20),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: hotelList
+                        .map((singleHotel) => Hotel(hotel: singleHotel))
+                        .toList(),
+                  ),
+                ),
               ],
             ),
           ),
