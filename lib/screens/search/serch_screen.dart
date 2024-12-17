@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import '/core/res/styles/app_styles.dart';
 import '/core/utils/app_routes.dart';
 import '/core/widgets/app_double_text.dart';
-import 'widget/app_text_icon.dart';
-import 'widget/app_ticket_tab.dart';
-import 'widget/find_ticket.dart';
-import 'widget/ticket_promotion.dart';
+import 'widgets/app_text_icon.dart';
+import 'widgets/app_ticket_tab.dart';
+import 'widgets/find_ticket.dart';
+import 'widgets/ticket_promotion.dart';
 
 class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key});
@@ -24,7 +24,7 @@ class SearchScreen extends StatelessWidget {
                 .copyWith(color: Colors.black, fontSize: 30),
           ),
           const SizedBox(height: 20),
-          const AppTicketTabs(),
+          const AppTicketTabs(textLeft: "Airline Tickets",textRight: "Hotels", ),
           const SizedBox(height: 25),
           const AppTextIcon(
               text: "Depature", icon: Icons.flight_takeoff_rounded),

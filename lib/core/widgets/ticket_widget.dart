@@ -11,6 +11,8 @@ class TicketWidget extends StatelessWidget {
   final String departureCity;
   final String destinationCity;
   final String duration;
+  final Color backgroundColor;
+  final bool? isColor;
 
   const TicketWidget({
     super.key,
@@ -19,6 +21,8 @@ class TicketWidget extends StatelessWidget {
     required this.departureCity,
     required this.destinationCity,
     required this.duration,
+    required this.backgroundColor,
+    this.isColor,
   });
 
   @override
@@ -30,7 +34,7 @@ class TicketWidget extends StatelessWidget {
           topLeft: Radius.circular(21),
           topRight: Radius.circular(21),
         ),
-        color: AppStyles.ticketPerpule,
+        color: backgroundColor,
       ),
       padding: const EdgeInsets.all(16),
       child: Column(
@@ -40,11 +44,12 @@ class TicketWidget extends StatelessWidget {
             children: [
               TextStyleeBigTitle(
                 text: departureCode,
+                isColor: isColor,
               ),
               Expanded(
                 child: Container(),
               ),
-              const BigDot(),
+              BigDot(isColor: isColor),
               Expanded(
                 child: Stack(
                   children: [
@@ -55,21 +60,24 @@ class TicketWidget extends StatelessWidget {
                     Center(
                       child: Transform.rotate(
                         angle: 1.57,
-                        child: const Icon(
+                        child: Icon(
                           Icons.local_airport_rounded,
-                          color: Colors.white,
+                          color: isColor == null
+                              ? Colors.white
+                              : AppStyles.planAndIcon,
                         ),
                       ),
                     ),
                   ],
                 ),
               ),
-              const BigDot(),
+              BigDot(isColor: isColor),
               Expanded(
                 child: Container(),
               ),
               TextStyleeBigTitle(
                 text: destinationCode,
+                isColor: isColor,
               ),
             ],
           ),
@@ -79,12 +87,18 @@ class TicketWidget extends StatelessWidget {
             children: [
               SizedBox(
                 width: 100,
-                child: TextStyleSmallTitle(text: departureCity),
+                child: TextStyleSmallTitle(
+                  text: departureCity,
+                  isColor: isColor,
+                ),
               ),
               Expanded(
                 child: Container(),
               ),
-              TextStyleSmallTitle(text: duration),
+              TextStyleSmallTitle(
+                text: duration,
+                isColor: isColor,
+              ),
               Expanded(
                 child: Container(),
               ),
@@ -93,6 +107,7 @@ class TicketWidget extends StatelessWidget {
                 child: TextStyleSmallTitle(
                   text: destinationCity,
                   align: TextAlign.right,
+                  isColor: isColor,
                 ),
               ),
             ],

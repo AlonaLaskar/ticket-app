@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:ticket_app/core/res/styles/app_styles.dart';
 
 class BigDot extends StatelessWidget {
-  const BigDot({super.key});
+  const BigDot({super.key, this.isColor});
+  final bool? isColor;
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +12,7 @@ class BigDot extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         border: Border.all(
-          color: Colors.white,
+          color: isColor == null ? Colors.white : AppStyles.planAndIcon,
           width: 2.5,
         ),
       ),

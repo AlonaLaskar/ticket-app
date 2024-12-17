@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '/core/widgets/app_coulmn_text_layour.dart';
 
-
 class TicketDetailsWidget extends StatelessWidget {
   final String date;
   final String dateLabel;
@@ -10,6 +9,7 @@ class TicketDetailsWidget extends StatelessWidget {
   final String ticketNumber;
   final String ticketNumberLabel;
   final Color backgroundColor;
+  final bool? isColor;
 
   const TicketDetailsWidget({
     super.key,
@@ -20,17 +20,20 @@ class TicketDetailsWidget extends StatelessWidget {
     required this.ticketNumber,
     required this.ticketNumberLabel,
     required this.backgroundColor,
-  }) ;
+    this.isColor,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        borderRadius: const BorderRadius.only(
-          bottomLeft: Radius.circular(21),
-          bottomRight: Radius.circular(21),
-        ),
+        borderRadius: isColor == null
+            ? const BorderRadius.only(
+                bottomLeft: Radius.circular(21),
+                bottomRight: Radius.circular(21),
+              )
+            : BorderRadius.zero,
         color: backgroundColor,
       ),
       child: Column(
@@ -41,16 +44,19 @@ class TicketDetailsWidget extends StatelessWidget {
               AppCoulmnTextLayout(
                 topText: date,
                 bottomText: dateLabel,
+                isColor: isColor,
                 align: CrossAxisAlignment.start,
               ),
               AppCoulmnTextLayout(
                 topText: departureTime,
                 bottomText: departureTimeLabel,
+                isColor: isColor,
                 align: CrossAxisAlignment.center,
               ),
               AppCoulmnTextLayout(
                 topText: ticketNumber,
                 bottomText: ticketNumberLabel,
+                isColor: isColor,
                 align: CrossAxisAlignment.end,
               ),
             ],
@@ -60,4 +66,3 @@ class TicketDetailsWidget extends StatelessWidget {
     );
   }
 }
-

@@ -8,16 +8,20 @@ import '/core/widgets/big_circle.dart';
 class TicketsView extends StatelessWidget {
   final Map<String, dynamic> ticket;
   final bool wholeScreen;
+  final bool? isColor;
 
   const TicketsView(
-      {super.key, required this.ticket, this.wholeScreen = false});
+      {super.key,
+      required this.ticket,
+      this.wholeScreen = false,
+      this.isColor});
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size; //get the size of the screen
     return SizedBox(
       width: size.width * 0.85,
-      height: 189,
+      height: 180,
       child: Container(
         margin: EdgeInsets.only(right: wholeScreen == true ? 0 : 16),
         child: Column(
@@ -28,17 +32,24 @@ class TicketsView extends StatelessWidget {
               departureCity: ticket["from"]["name"],
               destinationCity: ticket["to"]["name"],
               duration: ticket["duration"],
+              isColor: isColor,
+              backgroundColor: isColor == null
+                  ? AppStyles.ticketPerpule
+                  : AppStyles.ticketWhite,
             ),
             // circle and dots
             Container(
-              color: AppStyles.ticketPink,
-              child: const Row(
+              color: isColor == null
+                  ? AppStyles.ticketPink
+                  : AppStyles.ticketWhite,
+              child: Row(
                 children: [
-                  BigCircle(isRigth: false),
+                  BigCircle(isRigth: false, isColor: isColor),
                   Expanded(
-                    child: AppLayoutbuilderWidget(randomDivider: 20, width: 6),
+                    child: AppLayoutbuilderWidget(
+                        randomDivider: 20, width: 6, isColor: isColor),
                   ),
-                  BigCircle(isRigth: true),
+                  BigCircle(isRigth: true, isColor: isColor),
                 ],
               ),
             ),
@@ -49,7 +60,10 @@ class TicketsView extends StatelessWidget {
               departureTimeLabel: "Departure Time",
               ticketNumber: ticket["number"],
               ticketNumberLabel: "Number",
-              backgroundColor: AppStyles.ticketPink,
+              isColor: isColor,
+              backgroundColor: isColor == null
+                  ? AppStyles.ticketPink
+                  : AppStyles.ticketWhite,
             ),
           ],
         ),

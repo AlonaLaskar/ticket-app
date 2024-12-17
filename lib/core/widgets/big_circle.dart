@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
+
 class BigCircle extends StatelessWidget {
   final bool isRigth;
-  const BigCircle({super.key, required this.isRigth});
-
+  const BigCircle({super.key, required this.isRigth, this.isColor});
+  final bool? isColor;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -11,7 +12,7 @@ class BigCircle extends StatelessWidget {
       width: 10,
       child: DecoratedBox(
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: isColor == null ? Colors.white : Colors.grey.shade200,
           borderRadius: isRigth == true
               ? const BorderRadius.only(
                   topLeft: Radius.circular(10),
