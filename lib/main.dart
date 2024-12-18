@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'core/res/bottom_nav_bar.dart';
+import 'core/utils/app_routes.dart';
 import 'screens/home/widgets/all_hotels.dart';
 import 'screens/home/widgets/all_tickets.dart';
+import 'screens/ticket/ticket_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,9 +17,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: {
-        '/': (context) => const BottonNavBar(),
-        '/all_tickets': (context) => const AllTickets(),
-        '/all_hotels': (context) => const AllHotels(),
+        AppRoutes.home: (context) => const BottonNavBar(),
+        AppRoutes.allTickets: (context) => const AllTickets(),
+        AppRoutes.allHotels: (context) => const AllHotels(),
+        AppRoutes.ticketScreen: (context) => const TicketScreen(),
       },
     );
   }

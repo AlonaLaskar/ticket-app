@@ -9,18 +9,37 @@ import '../../core/res/styles/media.dart';
 import '../../core/utils/all_json.dart';
 import '../search/widgets/app_ticket_tab.dart';
 
-class TicketScreen extends StatelessWidget {
+class TicketScreen extends StatefulWidget {
   const TicketScreen({super.key});
 
   @override
+  State<TicketScreen> createState() => _TicketScreenState();
+}
+
+class _TicketScreenState extends State<TicketScreen> {
+  late int ticketIndex = 0;
+
+  @override
+  void didChangeDependencies() {
+    if (ModalRoute.of(context)!.settings.arguments != null) {
+      var args = ModalRoute.of(context)!.settings.arguments as Map;
+      print('Passed index ${args['index']}');
+      ticketIndex = args['index'];
+    }
+    super.didChangeDependencies();
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppStyles.bgColor,
+      appBar: AppBar(
+        title: const Text('Ticket'),
+      ),
       body: ListView(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
         children: [
-          const SizedBox(height: 40),
-          Text("Tickets", style: AppStyles.heandLineStyle1),
+          // const SizedBox(height: 40),
+          // Text("Tickets", style: AppStyles.heandLineStyle1),
           const SizedBox(height: 20),
           const AppTicketTabs(
             textLeft: "Upcoming",
@@ -30,7 +49,7 @@ class TicketScreen extends StatelessWidget {
           Container(
             padding: const EdgeInsets.only(left: 16),
             child: TicketsView(
-              ticket: ticketList[0],
+              ticket: ticketList[ticketIndex],
               isColor: true,
             ),
           ),
@@ -152,7 +171,7 @@ class TicketScreen extends StatelessWidget {
           Container(
             padding: const EdgeInsets.only(left: 16),
             child: TicketsView(
-              ticket: ticketList[0],
+              ticket: ticketList[ticketIndex],
             ),
           ),
         ],
