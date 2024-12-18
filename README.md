@@ -1,20 +1,30 @@
-<<<<<<< HEAD
-# ticket-app
-=======
-# ticket_app
+# Ticket App
 
-A new Flutter project.
+A Flutter-based application for managing and displaying flight tickets. This project allows users to search for flights, view ticket details, and more, providing a simple interface for booking and managing flights.
+
+## Features
+
+- **Flight Search**: Allows users to search for flights based on departure and arrival cities.
+- **Upcoming Flights**: Displays a list of the user's upcoming flights with details such as departure time, date, and flight number.
+- **Ticket Details**: Provides detailed information about each ticket, including the passenger name, passport number, booking code, and payment method.
+- **Hotel Booking**: Users can also browse hotel options for their travel destination.
+- **Discount Offers**: Users can view and redeem discount offers such as surveys for flight bookings.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+To get started with the project, follow the steps below:
 
-A few resources to get you started if this is your first Flutter project:
+### Prerequisites
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Ensure you have the following installed:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
->>>>>>> 2774470 (first commit)
+- [Flutter SDK](https://flutter.dev/docs/get-started/install)
+- A code editor such as [Visual Studio Code](https://code.visualstudio.com/) or [Android Studio](https://developer.android.com/studio)
+- A device/emulator for testing (Android/iOS)
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/AlonaLaskar/ticket_app.git
+   ```
