@@ -1,5 +1,6 @@
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
+import '../../screens/profile/profile.dart';
 import '/screens/home/home_screen.dart';
 import '/screens/search/serch_screen.dart';
 import '/screens/ticket/ticket_screen.dart';
@@ -15,7 +16,7 @@ class _BottonNavBarState extends State<BottonNavBar> {
     const HomeScreen(),
     const SearchScreen(),
     const TicketScreen(),
-    const Center(child: Text('Profile')),
+    const ProfileScreen(),
   ];
 
   int _selectedIndex = 0;
@@ -50,7 +51,7 @@ class _BottonNavBarState extends State<BottonNavBar> {
               activeIcon: Icon(FluentSystemIcons.ic_fluent_ticket_filled),
               label: 'Ticket'),
           BottomNavigationBarItem(
-              icon: Icon(FluentSystemIcons.ic_fluent_person_add_regular),
+              icon: Icon(FluentSystemIcons.ic_fluent_person_regular),
               activeIcon: Icon(FluentSystemIcons.ic_fluent_person_add_filled),
               label: 'Profile'),
         ],
