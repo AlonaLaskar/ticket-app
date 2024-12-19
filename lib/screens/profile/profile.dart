@@ -1,8 +1,8 @@
-import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:ticket_app/core/res/styles/app_styles.dart';
-import '../../core/widgets/text_in_profile.dart';
 import 'widgets/Page_header.dart';
+import 'widgets/award_widget.dart';
+import 'widgets/text_row.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -21,69 +21,95 @@ class ProfileScreen extends StatelessWidget {
           Divider(
             color: Colors.grey.shade300,
           ),
-          Stack(
-            children: [
-              Container(
-                height: 90,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: AppStyles.ticketPink,
-                  borderRadius: BorderRadius.circular(18),
+          //show the award widget
+          const AwardWidget(),
+          const SizedBox(height: 25),
+          Text("Accumulated miles", style: AppStyles.heandLineStyle3),
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            decoration: BoxDecoration(
+              color: AppStyles.bgColor,
+              borderRadius: BorderRadius.circular(18),
+            ),
+            child: Column(
+              children: [
+                const SizedBox(height: 15),
+                Text(
+                  '195264',
+                  style: TextStyle(
+                    fontSize: 45,
+                    color: AppStyles.textColor,
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
-              ),
-              Row(
-                // mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 20, vertical: 20),
-                    child: CircleAvatar(
-                      maxRadius: 25,
-                      backgroundColor: Colors.white,
-                      child: Icon(
-                        FluentSystemIcons.ic_fluent_lightbulb_filament_filled,
-                        size: 27,
-                        color: AppStyles.ticketPink,
-                      ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Mils accuracy",
+                      style: AppStyles.heandLineStyle4.copyWith(fontSize: 16),
                     ),
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text(
-                        "You have a new award",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 18,
-                            fontWeight: FontWeight.w500),
-                      ),
-                      Text(
-                        "You habe to 95 fligthts in a year",
-                        style: TextStyle(
-                            color: Colors.white.withOpacity(0.5),
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-              Positioned(
-                top: -29,
-                right: -40,
-                child: Container(
-                  padding: const EdgeInsets.all(30),
-                  decoration: BoxDecoration(
-                    // color: Colors.white,
-                    shape: BoxShape.circle,
-                    border: Border.all(
-                        width: 18,
-                        color: const Color.fromARGB(255, 232, 196, 208)),
-                  ),
+                    Text(
+                      "16th july",
+                      style: AppStyles.heandLineStyle4.copyWith(fontSize: 16),
+                    ),
+                  ],
                 ),
-              ),
-            ],
-          )
+                //devider
+                Divider(color: Colors.grey.shade300),
+                const SizedBox(height: 4),
+                const TextRow(
+                  numMails: "23 042",
+                  receivedFrom: "Airline CO",
+                ),
+                const SizedBox(height: 4),
+                Divider(color: Colors.grey.shade300),
+
+                const TextRow(
+                  numMails: "24",
+                  receivedFrom: "McDonalds",
+                ),
+
+                const SizedBox(height: 4),
+                Divider(color: Colors.grey.shade300),
+
+                const TextRow(
+                  numMails: "52 340",
+                  receivedFrom: "DBetech",
+                ),
+                const SizedBox(height: 25),
+                InkWell(
+                  onTap: () {
+                    print("How to get more miles");
+                  },
+                  child: Text('How to  get more miles',
+                      style: AppStyles.textStyle.copyWith(
+                        color: AppStyles.primaryColor,
+                        fontWeight: FontWeight.w500,
+                      )),
+                ),
+
+                // const Row(
+                //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //   children: [
+                //     Column(
+                //       children: [
+                //         TextStyleeBigTitle(text: "23 042", isColor: true),
+                //         TextStyleSmallTitle(text: "Mails", isColor: true),
+                //       ],
+                //     ),
+                //     Column(
+                //       children: [
+                //         TextStyleeBigTitle(text: "Airline CO", isColor: true),
+                //         TextStyleSmallTitle(
+                //             text: "Received from", isColor: true),
+                //       ],
+                //     )
+                //   ],
+                // ),
+              ],
+            ),
+          ),
         ],
       ),
     );

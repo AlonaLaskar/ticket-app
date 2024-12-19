@@ -9,7 +9,9 @@ class TextStyleeBigTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
+
       text,
+     
       style: isColor == null
           ? AppStyles.heandLineStyle2.copyWith(color: Colors.white)
           : AppStyles.heandLineStyle2
