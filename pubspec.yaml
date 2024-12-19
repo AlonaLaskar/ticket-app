@@ -71,6 +71,14 @@ flutter:
     - assets/images/hotel8.jpg
     - assets/images/planSit.jpg
     - assets/images/viza.png
+    - assets/images/desert_view.jpg
+    - assets/images/desert_view2.jpg
+    - assets/images/desert_view3.jpg
+    - assets/images/desert_view4.jpg
+    - assets/images/pool_view.jpg
+    - assets/images/pool_view2.jpg
+    - assets/images/pool_view3.jpg
+    - assets/images/pool_view4.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
