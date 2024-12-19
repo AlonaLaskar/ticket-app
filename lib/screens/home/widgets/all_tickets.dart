@@ -22,8 +22,6 @@ class AllTickets extends StatelessWidget {
                           var index = ticketList.indexOf(singleTicket);
                           Navigator.pushNamed(context, AppRoutes.ticketScreen,
                               arguments: {'index': index});
-
-                          // Navigator.pushNamed(context, AppRoutes.ticketScreen);
                         },
                         child: Container(
                             margin: const EdgeInsets.only(bottom: 20),

@@ -46,7 +46,9 @@ class _HotelDetailState extends State<HotelDetail> {
                 children: [
                   Positioned.fill(
                     child: Image.asset(
-                        "assets/images/${hotelList[index]["image"]}"),
+                      "assets/images/${hotelList[index]["image"]}",
+                      fit: BoxFit.cover,
+                    ),
                   ),
                   Positioned(
                     bottom: 40,
@@ -66,41 +68,36 @@ class _HotelDetailState extends State<HotelDetail> {
           SliverList(
             delegate: SliverChildListDelegate(
               [
-                Container(
-                  padding: const EdgeInsets.all(16),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Padding(
-                        padding: EdgeInsets.all(16.0),
-                        child: Text(
-                            "Nestled in the heart of the city, the Grandview Hotel offers a luxurious escape for both business and leisure travelers. With its modern amenities, spacious rooms, and exceptional service, guests are guaranteed a comfortable and memorable stay. The hotel features a state-of-the-art fitness center, a relaxing spa, and a rooftop bar with stunning city views. Whether you're visiting for a short getaway or an extended stay, the Grandview Hotel promises an unforgettable experience with its prime location, just steps away from top attractions and vibrant nightlife."),
-                      ),
-                      const Padding(
-                        padding: EdgeInsets.all(16.0),
-                        child: Text(
-                          "More Images",
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                          ),
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: ExpandedTextWidget(
+                    text: hotelList[index]['detail'],
+                  ),
+                ),
+                const Padding(
+                  padding: EdgeInsets.all(16.0),
+                  child: Text(
+                    "More Images",
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 250.0,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: hotelList[index]["images"].length,
+                    itemBuilder: (context, imagesIndex) {
+                      return Container(
+                        margin: const EdgeInsets.all(16),
+                        child: Image.asset(
+                          "assets/images/${hotelList[index]["images"][imagesIndex]}",
+                          fit: BoxFit.cover,
                         ),
-                      ),
-                      Container(
-                        height: 200,
-                        child: ListView.builder(
-                          scrollDirection: Axis.horizontal,
-                          itemCount: 10,
-                          itemBuilder: (context, index) {
-                            return Container(
-                              margin: const EdgeInsets.all(8),
-                              child: Image.network(
-                                  'https://via.placeholder.com/200x200'),
-                            );
-                          },
-                        ),
-                      ),
-                    ],
+                      );
+                    },
                   ),
                 ),
               ],
@@ -108,6 +105,48 @@ class _HotelDetailState extends State<HotelDetail> {
           ),
         ],
       ),
+    );
+  }
+}
+
+class ExpandedTextWidget extends StatefulWidget {
+  const ExpandedTextWidget({super.key, required this.text});
+  final String text;
+
+  @override
+  State<ExpandedTextWidget> createState() => _ExpandedTextWidgetState();
+}
+
+class _ExpandedTextWidgetState extends State<ExpandedTextWidget> {
+  bool isExpanded = false;
+  _toogleExpantion() {
+    setState(() {
+      isExpanded = !isExpanded;
+    });
+    print("The value of isExpanded is $isExpanded");
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    var textWidget = Text(
+      widget.text,
+      maxLines: isExpanded ? null : 6,
+      overflow: isExpanded ? TextOverflow.visible : TextOverflow.ellipsis,
+    );
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        textWidget,
+        GestureDetector(
+          onTap: () {
+            _toogleExpantion();
+          },
+          child: Text(isExpanded ? "Read Less" : "Read More",
+              style: AppStyles.textStyle.copyWith(
+                color: AppStyles.primaryColor,
+              )),
+        )
+      ],
     );
   }
 }

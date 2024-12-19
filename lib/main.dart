@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ticket_app/screens/home/hotel_detail.dart';
+import 'package:ticket_app/screens/profile/profile.dart';
 import 'core/res/bottom_nav_bar.dart';
 import 'core/utils/app_routes.dart';
 import 'screens/home/widgets/all_hotels.dart';
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
         AppRoutes.allHotels: (context) => const AllHotels(),
         AppRoutes.ticketScreen: (context) => const TicketScreen(),
         AppRoutes.hotelDetail: (context) => const HotelDetail(),
+        AppRoutes.profileScreen: (context) => const ProfileScreen(),
       },
     );
   }

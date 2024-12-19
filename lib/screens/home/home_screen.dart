@@ -1,6 +1,7 @@
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:ticket_app/core/utils/app_routes.dart';
+import '../../core/widgets/heading_text.dart';
 import '/core/res/styles/media.dart';
 import 'widgets/hotel.dart';
 import '/core/res/styles/app_styles.dart';
@@ -36,10 +37,8 @@ class HomeScreen extends StatelessWidget {
                           style: AppStyles.heandLineStyle2,
                         ),
                         const SizedBox(height: 5),
-                        Text(
-                          'Book Tickets',
-                          style: AppStyles.heandLineStyle1,
-                        ),
+                        const HeadlingText(
+                            text: 'Book Tickets', isColor: false),
                       ],
                     ),
                     Container(
@@ -85,8 +84,14 @@ class HomeScreen extends StatelessWidget {
                     scrollDirection: Axis.horizontal,
                     child: Row(
                       children: ticketList
-                          .map((singleTicket) =>
-                              TicketsView(ticket: singleTicket))
+                          .map((singleTicket) => GestureDetector(
+                              onTap: () {
+                                var index = ticketList.indexOf(singleTicket);
+                                Navigator.pushNamed(
+                                    context, AppRoutes.ticketScreen,
+                                    arguments: {'index': index});
+                              },
+                              child: TicketsView(ticket: singleTicket)))
                           .toList(),
                     )),
                 const SizedBox(height: 40),
@@ -100,7 +105,14 @@ class HomeScreen extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                   child: Row(
                     children: hotelList
-                        .map((singleHotel) => Hotel(hotel: singleHotel))
+                        .map((singleHotel) => GestureDetector(
+                            onTap: () {
+                              var index = hotelList.indexOf(singleHotel);
+                              Navigator.pushNamed(
+                                  context, AppRoutes.hotelDetail,
+                                  arguments: {'index': index});
+                            },
+                            child: Hotel(hotel: singleHotel)))
                         .toList(),
                   ),
                 ),
