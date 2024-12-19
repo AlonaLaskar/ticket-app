@@ -16,6 +16,8 @@ class AppStyles {
   static Color tickets = const Color(0xFF1130CE);
   static Color planAndIcon = const Color(0xFF8ACCF7);
   static Color litleTextColor =const Color.fromARGB(255, 163, 159, 159);
+  static Color profileLocationColor  =const Color(0xFFFEF4F3);
+  static Color profileTextColor  =const Color(0xFF526799);
 
   
 
