@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ticket_app/core/res/styles/app_styles.dart';
-import 'widgets/Page_header.dart';
+import 'widgets/page_header.dart';
 import 'widgets/award_widget.dart';
 import 'widgets/text_row.dart';
 
@@ -80,7 +80,6 @@ class ProfileScreen extends StatelessWidget {
                 const SizedBox(height: 25),
                 InkWell(
                   onTap: () {
-                    print("How to get more miles");
                   },
                   child: Text('How to  get more miles',
                       style: AppStyles.textStyle.copyWith(

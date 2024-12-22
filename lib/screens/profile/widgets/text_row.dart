@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/res/styles/app_styles.dart';
 import '../../../core/widgets/text_style_big_title.dart';
 import '../../../core/widgets/text_style_small_title.dart';
 
